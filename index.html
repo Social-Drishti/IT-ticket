@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>IT Support Ticket</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div id="formView">
+    <div class="eyebrow"><span class="dot"></span>INTERNAL &middot; IT HELPDESK</div>
+    <h1>Raise an IT Support Ticket</h1>
+    <p class="sub">Tell us what's wrong and we'll route it to the right person. You'll get a ticket number to track your issue.</p>
+
+    <div class="card">
+      <form id="ticketForm">
+        <div class="row2">
+          <div class="field">
+            <label>Full name <span class="required-star">*</span></label>
+            <input type="text" id="empName" required placeholder="Jane Doe" />
+          </div>
+          <div class="field">
+            <label>Work email <span class="required-star">*</span></label>
+            <input type="email" id="empEmail" required placeholder="jane@company.com" />
+          </div>
+        </div>
+
+        <div class="row2">
+          <div class="field">
+            <label>Department <span class="required-star">*</span></label>
+            <select id="dept" required>
+              <option value="" disabled selected>Select department</option>
+              <option>IT</option><option>HR</option><option>Finance</option>
+              <option>Sales</option><option>Operations</option><option>Marketing</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Issue category <span class="required-star">*</span></label>
+            <select id="category" required>
+              <option value="" disabled selected>Select category</option>
+              <option>Hardware</option><option>Software</option>
+              <option>Network / Internet</option><option>Account & Access</option>
+              <option>Email</option><option>Printer</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Priority <span class="required-star">*</span></label>
+          <div class="priority-group">
+            <input type="radio" name="priority" id="p-low" value="Low" checked><label data-level="Low" for="p-low">Low</label>
+            <input type="radio" name="priority" id="p-med" value="Medium"><label data-level="Medium" for="p-med">Medium</label>
+            <input type="radio" name="priority" id="p-high" value="High"><label data-level="High" for="p-high">High</label>
+            <input type="radio" name="priority" id="p-crit" value="Critical"><label data-level="Critical" for="p-crit">Critical</label>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Subject <span class="required-star">*</span></label>
+          <input type="text" id="subject" required placeholder="e.g. Laptop won't turn on" />
+        </div>
+
+        <div class="field">
+          <label>Describe the issue <span class="required-star">*</span> <span class="hint">— what happened, when, and any error messages</span></label>
+          <textarea id="description" required placeholder="I tried to log in this morning and got an 'access denied' error..."></textarea>
+        </div>
+
+        <div class="field">
+          <label>Contact number <span class="hint">(optional)</span></label>
+          <input type="tel" id="phone" placeholder="For urgent follow-up" />
+        </div>
+
+        <button type="submit" class="submit-btn" id="submitBtn">Submit ticket</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="stub-wrap" id="stubView">
+    <div class="eyebrow"><span class="dot"></span>TICKET CREATED</div>
+    <div class="stub">
+      <div class="stub-top">
+        <div class="status" id="stubStatus">OPEN</div>
+        <div class="label">Your ticket number</div>
+        <div class="number" id="stubNumber">ITK-00000</div>
+      </div>
+      <div class="perforation"></div>
+      <div class="stub-body">
+        <div class="stub-row"><span class="k">Submitted by</span><span class="v" id="rName"></span></div>
+        <div class="stub-row"><span class="k">Category</span><span class="v" id="rCategory"></span></div>
+        <div class="stub-row"><span class="k">Priority</span><span class="v" id="rPriority"></span></div>
+        <div class="stub-row"><span class="k">Subject</span><span class="v" id="rSubject"></span></div>
+        <div class="stub-row"><span class="k">Date</span><span class="v" id="rDate"></span></div>
+
+        <div class="stub-actions">
+          <a href="#" id="mailtoBtn" class="btn-primary">Email IT admin</a>
+          <button type="button" id="copyBtn" class="btn-secondary">Copy details</button>
+        </div>
+        <div class="copy-note" id="copyNote"></div>
+      </div>
+    </div>
+    <div class="stub-foot">Keep this ticket number for reference. Clicking "Email IT admin" opens a pre-filled email in your mail app — just hit send.</div>
+    <button class="new-ticket-link" id="newTicketBtn">Submit another ticket</button>
+  </div>
+
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
